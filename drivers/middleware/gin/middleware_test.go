@@ -11,9 +11,9 @@ import (
 	libgin "github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ulule/limiter"
-	"github.com/ulule/limiter/drivers/middleware/gin"
-	"github.com/ulule/limiter/drivers/store/memory"
+	"github.com/blackcatzzzz/limiter"
+	"github.com/blackcatzzzz/limiter/drivers/middleware/gin"
+	"github.com/blackcatzzzz/limiter/drivers/store/memory"
 )
 
 func TestHTTPMiddleware(t *testing.T) {

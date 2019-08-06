@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ulule/limiter"
+	"github.com/blackcatzzzz/limiter"
 )
 
 // TestRate tests Rate methods.

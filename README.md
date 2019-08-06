@@ -17,17 +17,17 @@
 Using [Dep](https://github.com/golang/dep)
 
 ```bash
-$ dep ensure -add github.com/ulule/limiter@v3-dep
+$ dep ensure -add github.com/blackcatzzzz/limiter@v3-dep
 ```
 
-> **Issue:** https://github.com/ulule/limiter/issues/57
+> **Issue:** https://github.com/blackcatzzzz/limiter/issues/57
 
 ## Usage
 
 In five steps:
 
 * Create a `limiter.Rate` instance _(the number of requests per period)_
-* Create a `limiter.Store` instance _(see [Redis](https://github.com/ulule/limiter/blob/master/drivers/store/redis/store.go) or [In-Memory](https://github.com/ulule/limiter/blob/master/drivers/store/memory/store.go))_
+* Create a `limiter.Store` instance _(see [Redis](https://github.com/blackcatzzzz/limiter/blob/master/drivers/store/redis/store.go) or [In-Memory](https://github.com/blackcatzzzz/limiter/blob/master/drivers/store/memory/store.go))_
 * Create a `limiter.Limiter` instance that takes store and rate instances as arguments
 * Create a middleware instance using the middleware of your choice
 * Give the limiter instance to your middleware initializer
@@ -37,7 +37,7 @@ In five steps:
 ```go
 // Create a rate with the given limit (number of requests) for the given
 // period (a time.Duration of your choice).
-import "github.com/ulule/limiter"
+import "github.com/blackcatzzzz/limiter"
 
 rate := limiter.Rate{
     Period: 1 * time.Hour,
@@ -68,7 +68,7 @@ if err != nil {
 // compliant to limiter.Store interface will do the job. The defaults are
 // "limiter" as Redis key prefix and a maximum of 3 retries for the key under
 // race condition.
-import "github.com/ulule/limiter/drivers/store/redis"
+import "github.com/blackcatzzzz/limiter/drivers/store/redis"
 
 store, err := redis.NewStore(client)
 if err != nil {
@@ -77,7 +77,7 @@ if err != nil {
 
 // Alternatively, you can pass options to the store with the "WithOptions"
 // function. For example, for Redis store:
-import "github.com/ulule/limiter/drivers/store/redis"
+import "github.com/blackcatzzzz/limiter/drivers/store/redis"
 
 store, err := redis.NewStoreWithOptions(pool, limiter.StoreOptions{
     Prefix:   "your_own_prefix",
@@ -88,7 +88,7 @@ if err != nil {
 }
 
 // Or use a in-memory store with a goroutine which clears expired keys.
-import "github.com/ulule/limiter/drivers/store/memory"
+import "github.com/blackcatzzzz/limiter/drivers/store/memory"
 
 store := memory.NewStore()
 
@@ -99,10 +99,10 @@ instance := limiter.New(store, rate)
 
 See middleware examples:
 
-* [HTTP](https://github.com/ulule/limiter/tree/master/examples/http/main.go)
-* [Gin](https://github.com/ulule/limiter/tree/master/examples/gin/main.go)
-* [Beego](https://github.com/ulule/limiter/blob/master/examples/beego/main.go)
-* [Chi](https://github.com/ulule/limiter/tree/master/examples/chi/main.go)
+* [HTTP](https://github.com/blackcatzzzz/limiter/tree/master/examples/http/main.go)
+* [Gin](https://github.com/blackcatzzzz/limiter/tree/master/examples/gin/main.go)
+* [Beego](https://github.com/blackcatzzzz/limiter/blob/master/examples/beego/main.go)
+* [Chi](https://github.com/blackcatzzzz/limiter/tree/master/examples/chi/main.go)
 
 
 ## How it works
@@ -162,8 +162,8 @@ create yet another one.
   * [@oibafsellig](https://twitter.com/oibafsellig)
   * [@thoas](https://twitter.com/thoas)
   * [@novln_](https://twitter.com/novln_)
-* Fork the [project](https://github.com/ulule/limiter)
-* Fix [bugs](https://github.com/ulule/limiter/issues)
+* Fork the [project](https://github.com/blackcatzzzz/limiter)
+* Fix [bugs](https://github.com/blackcatzzzz/limiter/issues)
 
 Don't hesitate ;)
 
@@ -173,10 +173,10 @@ Don't hesitate ;)
 [4]: https://github.com/gin-gonic/gin
 [5]: https://github.com/didip/tollbooth
 
-[godoc-url]: https://godoc.org/github.com/ulule/limiter
-[godoc-img]: https://godoc.org/github.com/ulule/limiter?status.svg
+[godoc-url]: https://godoc.org/github.com/blackcatzzzz/limiter
+[godoc-img]: https://godoc.org/github.com/blackcatzzzz/limiter?status.svg
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg
-[goreport-url]: https://goreportcard.com/report/github.com/ulule/limiter
-[goreport-img]: https://goreportcard.com/badge/github.com/ulule/limiter
+[goreport-url]: https://goreportcard.com/report/github.com/blackcatzzzz/limiter
+[goreport-img]: https://goreportcard.com/badge/github.com/blackcatzzzz/limiter
 [circle-url]: https://circleci.com/gh/ulule/limiter/tree/master
 [circle-img]: https://circleci.com/gh/ulule/limiter.svg?style=shield&circle-token=baf62ec320dd871b3a4a7e67fa99530fbc877c99
